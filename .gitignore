@@ -1,0 +1,36 @@
+bias-mirror-ml/
+# ======================
+# GLOBAL
+# ======================
+.env
+.env.*
+*.log
+logs/
+node_modules/
+
+# ======================
+# Python
+# ======================
+__pycache__/
+*.pyc
+venv/
+.venv/
+
+# ======================
+# Frontend
+# ======================
+bias-mirror-frontend/node_modules/
+bias-mirror-frontend/dist/
+
+# ======================
+# ML (do NOT commit training data)
+# ======================
+bias-mirror-ml/data/
+bias-mirror-ml/**/__pycache__/
+
+# ======================
+# OS / Editor
+# ======================
+.DS_Store
+.vscode/
+.idea/

@@ -1,0 +1,42 @@
+:root {
+  /* Light Mode */
+  --color-bg: #f6f7fb;
+  --color-bg-2: #eef1ff;
+  --color-card: rgba(255,255,255,0.7);
+  --color-text: #071027;
+  --color-muted: #7d8899;
+  --color-border: rgba(0,0,0,0.06);
+
+  --accent-1: #7c4dff;
+  --accent-2: #00d1ff;
+
+  --shadow: 0 12px 34px rgba(0,0,0,0.15);
+  --radius: 16px;
+}
+
+/* DARK MODE OVERRIDE */
+:root.dark {
+  --color-bg: #0b0f17;
+  --color-bg-2: #131a26;
+  --color-card: rgba(255,255,255,0.08);
+  --color-text: #f2f5ff;
+  --color-muted: #8c9ab3;
+  --color-border: rgba(255,255,255,0.12);
+
+  --accent-1: #a782ff;
+  --accent-2: #4dd6ff;
+
+  --shadow: 0 14px 40px rgba(0,0,0,0.45);
+}
+
+
+:root {
+  --bias-ring: #7c4dff;          /* main accent */
+  --bias-ring-bg: #e5e7eb;       /* light grey */
+  --bias-text: #0f172a;          /* dark text */
+}
+:root.dark {
+  --bias-ring: #a78bfa;          /* softer purple */
+  --bias-ring-bg: rgba(255,255,255,0.25);
+  --bias-text: #f8fafc;
+}
