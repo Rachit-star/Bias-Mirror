@@ -1,29 +1,39 @@
 import { useState } from "react";
-import api from "../services/api";
-import { toast } from "react-toastify";
+import { analyzeText, rewriteText } from "../services/api";
 
 export function useAnalyze() {
-  const [loading, setLoading] = useState(false); //used for showing loading state
-  const [result, setResult] = useState(null); //stores the analysis result
-  const [error, setError] = useState(null);//stores any error that occurs during analysis
+  const [loading, setLoading]         = useState(false);
+  const [result, setResult]           = useState(null);
+  const [error, setError]             = useState(null);
+  const [rewrites, setRewrites]       = useState({});
+  const [rewriting, setRewriting]     = useState({});
 
-    //function to analyze the given text called by TextEditor component
   async function analyze(text) {
     setLoading(true);
     setError(null);
     setResult(null);
+    setRewrites({});
     try {
-      // API call to backend analyze endpoint
-      const res = await api.post("/analyze", { text });
+      const res = await analyzeText(text);
       setResult(res.data);
-    } catch (e) { //error handling
-      console.error(e);
-      setError("Failed to analyze — backend may not be running.");
-      toast.error("Analyze failed. Check console.");
-    } finally { //this is to ensure loading is set to false after the API call is complete and guarentees UI recovery
+    } catch {
+      setError("Failed to analyze — is the backend running?");
+    } finally {
       setLoading(false);
     }
   }
 
-  return { analyze, loading, result, error };
+  async function rewrite(text, label, index) {
+    setRewriting((prev) => ({ ...prev, [index]: true }));
+    try {
+      const res = await rewriteText(text, label);
+      setRewrites((prev) => ({ ...prev, [index]: res.data.rewritten }));
+    } catch {
+      setRewrites((prev) => ({ ...prev, [index]: "Rewrite unavailable right now." }));
+    } finally {
+      setRewriting((prev) => ({ ...prev, [index]: false }));
+    }
+  }
+
+  return { analyze, loading, result, error, rewrite, rewrites, rewriting };
 }
