@@ -1,11 +1,17 @@
 import React from "react";
-import { motion } from "framer-motion";
+
+const MESSAGES = [
+  "Reading between the lines\u2026",
+  "Checking for blind spots\u2026",
+  "Looking at this from every angle\u2026",
+];
 
 export default function Loader() {
+  const msg = MESSAGES[Math.floor(Math.random() * MESSAGES.length)];
   return (
-    <div className="loader">
-      <motion.div animate={{ rotate: 360 }} transition={{ repeat: Infinity, duration: 1 }} className="dot" />
-      <div className="loader-text">Analyzing...</div>
+    <div className="loader-container">
+      <div className="spinner"></div>
+      <div className="loader-text">{msg}</div>
     </div>
   );
 }
