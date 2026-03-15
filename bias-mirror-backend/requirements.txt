@@ -3,4 +3,5 @@ uvicorn
 pydantic
 torch --index-url https://download.pytorch.org/whl/cpu
 transformers
-python-multipart
+python-multipartpython-dotenv
+groq
