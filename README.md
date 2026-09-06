@@ -70,7 +70,6 @@ Model weights are hosted on HuggingFace:
 | mBERT | 87.4% | 0.834 | Comparison |
 | XLM-RoBERTa-base | 86.5% | 0.808 | Comparison, original v1 backbone |
 | DistilBERT-multilingual | 85.0% | 0.793 | Comparison, efficiency tradeoff |
-| mDeBERTa-v3-base | — | — | Failed to converge during training (documented in the paper) |
 
 Trained on 15,894 real, human-annotated examples merged from four public sources: Social Bias Frames, CrowS-Pairs, Civil Comments (Jigsaw), and HateXplain. Full dataset construction methodology, per-class results, and the adversarial stress test findings are written up in the accompanying paper.
 
