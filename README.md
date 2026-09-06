@@ -91,9 +91,6 @@ npm test
 
 (Adjust the above if either side doesn't yet have a test suite set up.)
 
-### Retrain or compare a model
-
-The dataset build and training notebooks used for the model comparison are built to run on a Kaggle GPU instance. See the paper's Methodology section for the exact training configuration (splits, hyperparameters, class weighting) if you want to reproduce or extend the comparison.
 
 ### Submit a pull request
 
